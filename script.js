@@ -1,9 +1,11 @@
 class nota{
-    constructor(titulo, cor, grupo, texto){
+    constructor(titulo, cor, grupo, texto, corFonte, sizeFonte){
         this.titulo = titulo;
         this.cor = cor;
         this.grupo =  grupo;
         this.texto = texto;
+        this.corFonte = corFonte;
+        this.sizeFonte = sizeFonte;
     }
 }
 
@@ -18,7 +20,7 @@ for(var x = 0; x < localStorage.length; x++){
 
 //Adicioanndo uma primeira nota caso não haja nenhuma
 if(notas.length < 1){
-    notas.push(new nota("Nota 1", "#67C158", "", "Edite sua nota aqui"));
+    notas.push(new nota("Nota 1", "#67C158", "", "Edite sua nota aqui", "#000", "18"));
     
 }
 
@@ -39,6 +41,8 @@ function criarNota(index){
     card.appendChild(pin);
 
     var article = document.createElement("article");
+    article.id = "article";
+    article.style.color = notas[index].corFonte;
     article.setAttribute("onclick", "edit("+index+")");
     var h2 = document.createElement("h2");
     if(notas[index].titulo.length > 9){
@@ -87,6 +91,7 @@ function edit(index){
     
     var texto = document.querySelector("#in-texto");
     texto.value = notas[index].texto;
+    texto.setAttribute("style", "font-size:"+notas[index].sizeFonte+"px");
 
     var cor = document.querySelector("#cor");
     cor.value = notas[index].cor
@@ -106,6 +111,8 @@ function edit(index){
         voltar();
         
     })
+
+    document.querySelector("#text").setAttribute("onclick", "txt("+index+")");
 
 }
 
@@ -128,3 +135,75 @@ function voltar(){
 }
 
 console.table(notas)
+
+function txt(index){
+    var container = document.createElement("div");
+    container.id = "edit-text";
+    container.style.display = "flex";
+
+    document.querySelector("#editar").appendChild(container);
+
+    var form = document.createElement("form");
+    container.appendChild(form);
+
+    var x = document.createElement("img");
+    x.src = "media/x.png";
+    x.setAttribute("onclick", "fechar()");
+    form.appendChild(x)
+
+    var fonteDiv = document.createElement("div");
+    form.appendChild(fonteDiv)
+
+    var labelFonte = document.createElement("label");
+    labelFonte.setAttribute("for", "fonte");
+    labelFonte.innerHTML = "Tamanho da fonte: "
+
+    var fonte = document.createElement("input")
+    fonte.setAttribute("type", "text");
+    fonte.setAttribute("autocomplete", "off")
+    fonte.id = "fonte";
+    fonte.setAttribute("value", notas[index].sizeFonte)
+
+    fonteDiv.appendChild(labelFonte);
+    fonteDiv.appendChild(fonte)
+
+    var corDiv = document.createElement("div");
+    form.appendChild(corDiv);
+
+    var labelCor = document.createElement("label");
+    labelCor.setAttribute("for", "fontColor");
+    labelCor.innerHTML = "Cor do texto: ";
+
+    var fontColor = document.createElement("input");
+    fontColor.setAttribute("type", "color");
+    fontColor.id = "fontColor";
+    fontColor.setAttribute("value", notas[index].corFonte);
+
+    corDiv.appendChild(labelCor);
+    corDiv.appendChild(fontColor);
+
+    var confirmarBtn = document.createElement("input");
+    confirmarBtn.setAttribute("type", "submit");
+    confirmarBtn.id = "confirmarBtn";
+
+    form.appendChild(confirmarBtn);
+
+    
+    confirmarBtn.addEventListener("click", function(e){
+        e.preventDefault();
+
+        document.querySelector("#in-texto").setAttribute("style", "font-size:"+fonte.value+"px");
+        document.querySelector("#article").style.color = fontColor.value;
+
+        notas[index].sizeFonte = fonte.value;
+        notas[index].corFonte = fontColor.value;
+        localStorage.setItem("notas", JSON.stringify(notas));
+        container.style.display = "none";
+
+    })
+
+}
+
+function fechar(){
+    document.querySelector("#editar").removeChild(document.querySelector("#edit-text"));
+}

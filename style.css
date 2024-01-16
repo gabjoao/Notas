@@ -24,6 +24,7 @@ html {
         max-width: 100%;
         background-image: url("media/bg.png");
         background-size: cover;
+        background-attachment: fixed;
       
     }
 
@@ -79,7 +80,6 @@ html {
         height: 100%;
         margin-top: 25px;
         gap: 30px;
-        color: #000;
         text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.10), 4px 3px 5px rgba(0, 0, 0, 0.09), 10px 6px 7px rgba(0, 0, 0, 0.05), 18px 10px 8px rgba(0, 0, 0, 0.01), 28px 16px 9px rgba(0, 0, 0, 0.00);
         font-family: Poppins;
 
@@ -208,6 +208,7 @@ html {
         appearance: none;
         overflow: hidden;
         border-radius: 50%;
+        background: none;
        
     }
 
@@ -220,7 +221,6 @@ html {
         border: none;
         color: #000;
         font-family: Poppins;
-        font-size: 18px;
         font-style: normal;
         font-weight: 400;
         line-height: 153.846%; /* 20px */
@@ -245,5 +245,83 @@ html {
         font-weight: 400;
         line-height: 153.846%; /* 30.769px */
         letter-spacing: 0.6px;
+    }
+
+    #edit-text{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        height: 180px;
+        border-radius: 10px;
+        border: 1px solid #000;
+        background: #FFF;
+        box-shadow: 3px 4px 12px 0px rgba(0, 0, 0, 0.20), 14px 17px 22px 0px rgba(0, 0, 0, 0.17), 31px 38px 29px 0px rgba(0, 0, 0, 0.10), 55px 67px 35px 0px rgba(0, 0, 0, 0.03), 87px 104px 38px 0px rgba(0, 0, 0, 0.00);
+        position: absolute;
+        left: 5%;
+        top: 20%;
+
+    }
+
+    #edit-text img{
+        width: 32px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        right: 2%;
+    }
+
+    #edit-text form{
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    #fonte{
+        text-align: center;
+        border: none;
+        width: 25px; 
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        font-family: Poppins;
+        
+    }
+
+    #edit-text div{
+        font-family: Poppins;
+        display: flex;
+        flex-direction: row;
+        font-size: 18px;    
+        font-style: normal;
+        font-weight: 400;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+    }
+
+    #fontColor{
+        width: 60px;
+        height: 30px;
+        border: none;
+        background: none;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    #confirmarBtn{
+        margin-top: 20px;
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+        background: #000;
+        box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.25), 0px 5px 5px 0px rgba(0, 0, 0, 0.21), 0px 11px 6px 0px rgba(0, 0, 0, 0.13), 0px 19px 8px 0px rgba(0, 0, 0, 0.04), 0px 30px 8px 0px rgba(0, 0, 0, 0.00);
+        color: white;   
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
     }
 }
