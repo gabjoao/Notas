@@ -61,6 +61,26 @@ function edit(index){
     document.querySelector("main").style.display = "none";
     document.querySelector("#editar").style.display = "flex";
 
+    var titulo = document.querySelector("#in-titulo");
+    titulo.value = notas[index].titulo;
+
+    var texto = document.querySelector("#in-texto");
+    texto.value = notas[index].texto;
+
+    const btn = document.querySelector("#salvar-btn");
+    btn.addEventListener("click", function(e){
+        e.preventDefault();
+
+        notas[index].titulo = titulo.value;
+        notas[index].texto = texto.value;
+        notas[index].grupo = "Todos";
+
+        console.table(notas[index]);
+        localStorage.setItem("notas", JSON.stringify(notas[index]));
+        criarNota[index]
+        
+    })
+
 }
 
 function del(index){
