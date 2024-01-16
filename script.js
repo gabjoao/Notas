@@ -41,12 +41,22 @@ function criarNota(index){
     var article = document.createElement("article");
     article.setAttribute("onclick", "edit("+index+")");
     var h2 = document.createElement("h2");
-    h2.textContent = notas[index].titulo.slice(0, 6) + "...";
+    if(notas[index].titulo.length > 9){
+        h2.textContent = notas[index].titulo.slice(0, 9) + "...";
+    }else{
+        h2.textContent = notas[index].titulo;
+    }
+   
     h2.id = "titulo";
     article.appendChild(h2);
 
     var texto = document.createElement("p");
-    texto.textContent = notas[index].texto.slice(0,19) + "...";
+    if(notas[index].texto.length > 11){
+        texto.textContent = notas[index].texto.slice(0,11) + "...";
+    }else{
+        texto.textContent = notas[index].texto;
+    }
+    
     article.appendChild(texto);
     card.appendChild(article);
 
@@ -63,16 +73,23 @@ function criarNota(index){
 function edit(index){
     document.querySelector("main").style.display = "none";
     document.querySelector("#editar").style.display = "flex";
+    document.querySelector(".bin").setAttribute("onclick", "del("+index+")");
 
     if(index == notas.length){
-        notas.push(new nota("Adicione um título!", "#67C158", "Todos", "Digite aqui"));
+        notas.push(new nota("Nova nota", "#67C158", "Todos", "Digite aqui"));
     }
+
+    document.querySelector(".titulo-container").style.backgroundColor = notas[index].cor;
+    document.querySelector("#salvar-btn").style.backgroundColor = notas[index].cor;
 
     var titulo = document.querySelector("#in-titulo");
     titulo.value = notas[index].titulo;
     
     var texto = document.querySelector("#in-texto");
     texto.value = notas[index].texto;
+
+    var cor = document.querySelector("#cor");
+    cor.value = notas[index].cor
     
 
     const btn = document.querySelector("#salvar-btn");
@@ -81,11 +98,12 @@ function edit(index){
 
         notas[index].titulo = titulo.value;
         notas[index].texto = texto.value;
+        notas[index].cor = cor.value;
 
         localStorage.setItem("notas", JSON.stringify(notas));
         criarNota[index]
-
         console.table(notas[index])
+        voltar();
         
     })
 
@@ -108,3 +126,5 @@ function voltar(){
     document.querySelector("#editar").style.display = "none";
     location.reload();
 }
+
+console.table(notas)

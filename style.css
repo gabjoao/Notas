@@ -68,6 +68,7 @@ html {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        position: relative;
     }
 
     .nota article{
@@ -85,10 +86,13 @@ html {
     }
 
     .nota article h2{
+        margin-top: 10px;
+        text-align: center;
         font-size: 24px;
         font-style: normal;
         font-weight: 400;
         line-height: normal;
+        width: 150px;
     }
 
     .nota article p{
@@ -103,19 +107,21 @@ html {
     #pin{
         width: 27px;
         height: 27px;
-        left: 30%;
-
+        right: 90%;
+        bottom: 90%;
+        position: absolute;
     }
 
     #bin{
-        right: 30%;
-        margin-top: 10px;
-        margin-right: 10px;
+        left: 70%;
+        top: 5%;
         width: 27px;
         height: 27px;
         background-image: url("media/bin.png");
         background-repeat: no-repeat;
         background-position: center;
+        position: absolute;
+        background-size: contain;
     }    
 
     #add{
@@ -157,7 +163,6 @@ html {
         width: 350px;
         height: 75px;
         border-radius: 0px 0px 0px 10px;
-        background: #67C158;
         box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.15), 7px 7px 10px 0px rgba(0, 0, 0, 0.13), 16px 16px 14px 0px rgba(0, 0, 0, 0.08), 29px 29px 16px 0px rgba(0, 0, 0, 0.02), 45px 45px 18px 0px rgba(0, 0, 0, 0.00);
         display: flex;
         align-items: center;
@@ -195,6 +200,17 @@ html {
         height: 30px;
     }
 
+
+    #cor{
+        width: 30px;
+        height: 30px;
+        border: none;
+        appearance: none;
+        overflow: hidden;
+        border-radius: 50%;
+       
+    }
+
     #in-texto{
         margin-top: 10%;
         width: 340px;
@@ -219,7 +235,6 @@ html {
         width: 174px;
         height: 53px;
         border-radius: 10px;
-        background: #67C158;
         box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.15), 7px 7px 10px 0px rgba(0, 0, 0, 0.13), 16px 16px 14px 0px rgba(0, 0, 0, 0.08), 29px 29px 16px 0px rgba(0, 0, 0, 0.02), 45px 45px 18px 0px rgba(0, 0, 0, 0.00);
         text-align: center;
         color: #FFF;
