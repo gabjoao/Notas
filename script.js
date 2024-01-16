@@ -140,6 +140,7 @@ function txt(index){
     var container = document.createElement("div");
     container.id = "edit-text";
     container.style.display = "flex";
+    container.style.border = "1px solid" + notas[index].cor;
 
     document.querySelector("#editar").appendChild(container);
 
@@ -185,6 +186,8 @@ function txt(index){
     var confirmarBtn = document.createElement("input");
     confirmarBtn.setAttribute("type", "submit");
     confirmarBtn.id = "confirmarBtn";
+    confirmarBtn.style.background = notas[index].cor;
+    confirmarBtn.style.color = notas[index].corFonte;
 
     form.appendChild(confirmarBtn);
 
