@@ -11,8 +11,10 @@ var notas = [];
 
 //Pegando os itens do localStorage
 for(var x = 0; x < localStorage.length; x++){
-    notas.push(JSON.parse(localStorage.getItem("notas"))); 
+    notas = (JSON.parse(localStorage.getItem("notas")));
 }
+
+
 
 //Adicioanndo uma primeira nota caso não haja nenhuma
 if(notas.length < 1){
@@ -29,7 +31,6 @@ for(var x = 0; x < notas.length; x++){
 function criarNota(index){
     var card = document.createElement("div");
     card.className = "nota";
-    card.setAttribute("onclick", "edit("+index+")");
     document.querySelector("#notas-container").appendChild(card);
 
     var pin = document.createElement("img");
@@ -38,12 +39,14 @@ function criarNota(index){
     card.appendChild(pin);
 
     var article = document.createElement("article");
+    article.setAttribute("onclick", "edit("+index+")");
     var h2 = document.createElement("h2");
-    h2.textContent = notas[index].titulo;
+    h2.textContent = notas[index].titulo.slice(0, 6) + "...";
     h2.id = "titulo";
     article.appendChild(h2);
+
     var texto = document.createElement("p");
-    texto.textContent = notas[index].texto;
+    texto.textContent = notas[index].texto.slice(0,19) + "...";
     article.appendChild(texto);
     card.appendChild(article);
 
@@ -61,11 +64,16 @@ function edit(index){
     document.querySelector("main").style.display = "none";
     document.querySelector("#editar").style.display = "flex";
 
+    if(index == notas.length){
+        notas.push(new nota("Adicione um título!", "#67C158", "Todos", "Digite aqui"));
+    }
+
     var titulo = document.querySelector("#in-titulo");
     titulo.value = notas[index].titulo;
-
+    
     var texto = document.querySelector("#in-texto");
     texto.value = notas[index].texto;
+    
 
     const btn = document.querySelector("#salvar-btn");
     btn.addEventListener("click", function(e){
@@ -73,18 +81,22 @@ function edit(index){
 
         notas[index].titulo = titulo.value;
         notas[index].texto = texto.value;
-        notas[index].grupo = "Todos";
 
-        console.table(notas[index]);
-        localStorage.setItem("notas", JSON.stringify(notas[index]));
+        localStorage.setItem("notas", JSON.stringify(notas));
         criarNota[index]
+
+        console.table(notas[index])
         
     })
 
 }
 
 function del(index){
-    alert("apagar " + index);
+    notas.splice(index, 1);
+    console.table(notas);
+    localStorage.setItem("notas", JSON.stringify(notas));
+    location.reload();
+    
 }
 
 function add(){
@@ -94,4 +106,5 @@ function add(){
 function voltar(){
     document.querySelector("main").style.display = "flex";
     document.querySelector("#editar").style.display = "none";
+    location.reload();
 }
