@@ -20,7 +20,7 @@ for(var x = 0; x < localStorage.length; x++){
 
 //Adicioanndo uma primeira nota caso não haja nenhuma
 if(notas.length < 1){
-    notas.push(new nota("Nota 1", "#67C158", "", "Edite sua nota aqui", "#000", "18"));
+    notas.push(new nota("Nova nota", "#67C158", "", "Edite sua nota aqui", "#000", "18"));
     
 }
 
@@ -88,6 +88,7 @@ function edit(index){
 
     var titulo = document.querySelector("#in-titulo");
     titulo.value = notas[index].titulo;
+    titulo.style.color = notas[index].corFonte;
     
     var texto = document.querySelector("#in-texto");
     texto.value = notas[index].texto;
@@ -98,6 +99,7 @@ function edit(index){
     
 
     const btn = document.querySelector("#salvar-btn");
+    btn.style.color = notas[index].corFonte;
     btn.addEventListener("click", function(e){
         e.preventDefault();
 
