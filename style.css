@@ -23,12 +23,17 @@ html {
         align-items: center;
         max-width: 100%;
         background-image: url("media/bg.png");
-        background-size: contain;
-        height: 1200px;
+        background-size: cover;
       
     }
 
-    h1{
+    main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    main h1{
         text-align: center;
         font-size: 96px;
         color: #151144;
@@ -111,6 +116,7 @@ html {
         height: 27px;
         background-image: url("media/bin.png");
         background-repeat: no-repeat;
+        background-position: center;
     }    
 
     #add{
@@ -123,5 +129,107 @@ html {
         font-size: 64px;
         position: fixed;
         bottom: 10%;
+    }
+
+    #editar{
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    #voltar{
+        width: 50px;
+        height: 50px;
+        margin-right: 80%;
+        margin-top: 5%;
+    }
+
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .titulo-container{
+        width: 350px;
+        height: 75px;
+        border-radius: 0px 0px 0px 10px;
+        background: #67C158;
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.15), 7px 7px 10px 0px rgba(0, 0, 0, 0.13), 16px 16px 14px 0px rgba(0, 0, 0, 0.08), 29px 29px 16px 0px rgba(0, 0, 0, 0.02), 45px 45px 18px 0px rgba(0, 0, 0, 0.00);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-end;
+    }
+
+    #in-titulo{
+        color: #FFF;
+        text-align: center;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.10), 4px 3px 5px rgba(0, 0, 0, 0.09), 10px 6px 7px rgba(0, 0, 0, 0.05), 18px 10px 8px rgba(0, 0, 0, 0.01), 28px 16px 9px rgba(0, 0, 0, 0.00);
+        font-family: Poppins;
+        font-size: 32px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        background: none;
+        border: none;
+        width: 100%;
+    }
+
+    .icons-container{
+        margin-top: 5%;
+        display: flex;
+        flex-direction: row;
+        align-self: flex-end;
+        justify-content: center;
+        gap: 20px;
+        width: 209px;
+        height: 25px;
+    }
+
+    .icons-container img{
+        width: 30px;
+        height: 30px;
+    }
+
+    #in-texto{
+        margin-top: 10%;
+        width: 340px;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.42);
+        backdrop-filter: blur(2px);
+        border: none;
+        color: #000;
+        font-family: Poppins;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 153.846%; /* 20px */
+        letter-spacing: 0.39px;
+        text-align: center;
+        size: 1;
+    }
+
+    #salvar-btn{
+        margin-top: 10%;
+        border: none;
+        width: 174px;
+        height: 53px;
+        border-radius: 10px;
+        background: #67C158;
+        box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.15), 7px 7px 10px 0px rgba(0, 0, 0, 0.13), 16px 16px 14px 0px rgba(0, 0, 0, 0.08), 29px 29px 16px 0px rgba(0, 0, 0, 0.02), 45px 45px 18px 0px rgba(0, 0, 0, 0.00);
+        text-align: center;
+        color: #FFF;
+        text-align: center;
+        font-family: Poppins;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 153.846%; /* 30.769px */
+        letter-spacing: 0.6px;
     }
 }

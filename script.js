@@ -29,6 +29,7 @@ for(var x = 0; x < notas.length; x++){
 function criarNota(index){
     var card = document.createElement("div");
     card.className = "nota";
+    card.setAttribute("onclick", "edit("+index+")");
     document.querySelector("#notas-container").appendChild(card);
 
     var pin = document.createElement("img");
@@ -56,6 +57,21 @@ function criarNota(index){
 }
 
 
+function edit(index){
+    document.querySelector("main").style.display = "none";
+    document.querySelector("#editar").style.display = "flex";
+
+}
+
 function del(index){
     alert("apagar " + index);
+}
+
+function add(){
+    edit(notas.length);
+}
+
+function voltar(){
+    document.querySelector("main").style.display = "flex";
+    document.querySelector("#editar").style.display = "none";
 }

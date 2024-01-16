@@ -8,16 +8,39 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Notas</h1>
+    <main>
+        <h1>Notas</h1>
 
-    <div class="group"></div>
+        <div class="group"></div>
+    
+        <section id="notas-container">
+    
+            
+        </section>
+    
+        <button id="add" onclick="add()">+</button>
+    </main>
 
-    <section id="notas-container">
+    <section id="editar">
+        <img id="voltar" onclick="voltar()" src="media/back.png" alt="">
 
-        
+        <form action="">
+            <div class="titulo-container">
+                <input id="in-titulo" type="text" name="in-titulo" value="Adicione um título">
+            </div>
+    
+            <div class="icons-container">
+                <img src="media/color.png" alt="">
+                <img src="media/group.png" alt="">
+                <img src="media/bin.png" alt="">
+            </div>
+    
+            <textarea name="in-texto" id="in-texto" cols="30" rows="18"></textarea>
+            
+            <input id="salvar-btn" type="submit" value="Salvar">
+        </form>
+    
     </section>
-
-    <button id="add" onclick="add()">+</button>
-
+   
 </body>
 </html>
