@@ -80,7 +80,7 @@ function edit(index){
     document.querySelector(".bin").setAttribute("onclick", "del("+index+")");
 
     if(index == notas.length){
-        notas.push(new nota("Nova nota", "#67C158", "Todos", "Digite aqui"));
+        notas.push(new nota("Nova nota", "#67C158", "Todos", "Digite aqui", "#000", "18"));
     }
 
     document.querySelector(".titulo-container").style.backgroundColor = notas[index].cor;
