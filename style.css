@@ -258,7 +258,15 @@ html {
         position: absolute;
         left: 5%;
         top: 20%;
+        animation: fade .3s;
+    }
 
+    @keyframes fade {
+        0%{
+            scale: 90%;
+            opacity: 50%;
+        }
+        
     }
 
     #edit-text img{
